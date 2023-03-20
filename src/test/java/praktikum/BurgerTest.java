@@ -111,7 +111,7 @@ public class BurgerTest {
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "dinosaur", 200F));
         Mockito.when(bun.getPrice()).thenReturn(100F);
         Mockito.when(bun.getName()).thenReturn(bunName);
-        String expectedReceipt = "(==== " + bunName + " ====)\r\n" + "= " + SAUCE.toString().toLowerCase() + " hot sauce =\r\n" + "= " + FILLING.toString().toLowerCase() + " dinosaur =\r\n" + "(==== " + bunName + " ====)\r\n" + "\r\nPrice: " + expectedPriceAsString + "\r\n";
+        String expectedReceipt = String.format("(==== " + bunName + " ====)%n" + "= " + SAUCE.toString().toLowerCase() + " hot sauce =%n" + "= " + FILLING.toString().toLowerCase() + " dinosaur =%n" + "(==== " + bunName + " ====)%n" + "%nPrice: " + expectedPriceAsString + "%n");
         System.out.println(burger.getReceipt());
         MatcherAssert.assertThat(burger.getReceipt(), is(expectedReceipt));
     }
