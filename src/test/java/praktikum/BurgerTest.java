@@ -106,7 +106,9 @@ public class BurgerTest {
         Burger burger = new Burger();
         burger.setBuns(bun);
         String bunName = "Test bun";
-        String expectedPriceAsString = "500.000000";
+        float expectedPrice = 500F;
+        String plusString = "00000";
+        String expectedPriceAsString = expectedPrice + plusString;
         burger.addIngredient(new Ingredient(IngredientType.SAUCE, "hot sauce", 100F));
         burger.addIngredient(new Ingredient(IngredientType.FILLING, "dinosaur", 200F));
         Mockito.when(bun.getPrice()).thenReturn(100F);
